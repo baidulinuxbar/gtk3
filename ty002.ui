@@ -1,0 +1,41 @@
+<!--这是一个测试notebook控件的脚本程序-->
+<interface>
+	<object id="window" class="GtkWindow">
+		<property name="visible">True</property>
+		<property name="title">notebook</property>
+		<property name="default-width">600</property>
+		<property name="default-height">400</property>
+		<!--首先建立容器：fixed-->
+		<child>
+			<object id="fixed" class="GtkFixed">
+				<property name="visible">True</property>
+				<!--在容器中建立第一个控件，button1-->
+				<child>
+					<object id="button1" class="GtkButton">
+						<property name="visible">True</property>
+						<property name="label">button1</property>
+						<property name="width-request">90</property>
+						<property name="height-request">22</property>
+					</object>
+					<packing>
+						<property name="x">30</property>
+						<property name="y">370</property>
+					</packing>
+				</child>
+				<!--建立第二个控件：button2-->
+				<child>
+					<object id="button2" class="GtkButton">
+						<property name="visible">True</property>
+						<property name="label">button2</property>
+						<property name="width-request">90</property>
+						<property name="height-request">22</property>
+					</object>
+					<packing>
+						<property name="x">480</property>
+						<property name="y">370</property>
+					</packing>
+				</child>
+			</object>
+		</child>
+	</object>
+</interface>
