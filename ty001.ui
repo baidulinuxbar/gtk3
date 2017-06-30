@@ -1,0 +1,81 @@
+<!--only for test-->
+<interface>
+	<object id="window" class="GtkWindow">
+	<property name="visible">True</property>
+	<property name="title">test ui</property>
+	<property name="default-width">600</property>
+	<property name="default-height">400</property>
+<!--test insert a comment-->
+	<child>
+		<object id="fix1" class="GtkFixed">
+		<property name="visible">True</property>
+		<child>
+			<object class="GtkNotebook">
+			<property name="visible">True</property>
+			<child>
+				<object class="GtkLabel" id="notebook-content">
+					<property name="visible">True</property>
+					<property name="label">content</property>
+<!--					<property name="width-request">130</property>
+					<property name="height-request">25</property> -->
+				</object>
+			</child>
+			<child type="tab">
+				<object class="GtkLabel" id="notebook-tab">
+					<property name="visible">True</property>
+					<property name="label">tab</property>
+<!--					<property name="width-request">130</property>
+					<property name="height-request">25</property> -->
+				</object>
+			</child>
+			<child>
+				<object class="GtkLabel" id="notebook-content1">
+					<property name="visible">True</property>
+					<property name="label">contentaa</property>
+<!--					<property name="width-request">130</property>
+					<property name="height-request">25</property> -->
+				</object>
+			</child>
+			<child type="tab">
+				<object class="GtkLabel" id="notebook-tab1">
+					<property name="visible">True</property>
+					<property name="label">tab1</property>
+<!--					<property name="width-request">130</property>
+					<property name="height-request">25</property> -->
+				</object>
+			</child>
+			</object>
+			<packing>
+				<property name="x">30</property>
+				<property name="y">30</property>
+			</packing>
+		</child>
+		<child>
+			<object id="button1" class="GtkButton">
+			<property name="visible">True</property>
+			<property name="label">button1</property>
+			<property name="width-request">100</property>
+			<property name="height-request">24</property>
+			</object>
+			<packing>
+			<property name="x">30</property>
+			<property name="y">360</property>
+			</packing>
+<!--another button-->
+		</child>
+		<child>
+			<object id="button2" class="GtkButton">
+			<property name="visible">True</property>
+			<property name="label">button2</property>
+			<property name="width-request">100</property>
+			<property name="height-request">24</property>
+			</object>
+			<packing>
+			<property name="x">470</property>
+			<property name="y">360</property>
+			</packing>
+		</child>
+		</object>
+	</child>
+	</object>
+</interface>

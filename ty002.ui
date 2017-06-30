@@ -19,7 +19,7 @@
 					</object>
 					<packing>
 						<property name="x">30</property>
-						<property name="y">370</property>
+						<property name="y">360</property>
 					</packing>
 				</child>
 				<!--建立第二个控件：button2-->
@@ -32,7 +32,35 @@
 					</object>
 					<packing>
 						<property name="x">480</property>
-						<property name="y">370</property>
+						<property name="y">360</property>
+					</packing>
+				</child>
+				<!--建立第三个控件：notebook-->
+				<child>
+					<object id="note" class="GtkNotebook">
+						<property name="visible">True</property>
+						<property name="width-request">540</property>
+						<property name="height-request">240</property>
+						<child>
+							<object id="lab1" class="GtkLabel">
+								<property name="visible">True</property>
+								<property name="label">
+								竹边台榭水边亭，不要人随只独行。
+								乍暖柳条无气力，淡晴花影不分明。
+								</property>
+							</object>
+						</child>
+						<child type="tab">
+							<object id="lab2" class="GtkLabel">
+								<property name="visible">True</property>
+<!--								<property name="label">一番过雨来幽径，无数新禽有喜声。\n只欠翠纱红映肉，两年寒食负先生。</property> -->
+								<property name="label">lab1</property>
+							</object>
+						</child>
+					</object>
+					<packing>
+						<property name="x">30</property>
+						<property name="y">30</property>
 					</packing>
 				</child>
 			</object>
