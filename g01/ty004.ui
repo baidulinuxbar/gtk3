@@ -1,0 +1,142 @@
+<interface>
+<object id="window" class="GtkWindow">
+	<property name="visible">True</property>
+	<property name="title">demo</property>
+	<property name="default-width">640</property>
+	<property name="default-height">480</property>
+	<property name="resizable">False</property>
+<!--main fixed-->	
+	<child><object id="fix1" class="GtkFixed">
+		<property name="visible">True</property>
+		<property name="border-width">20</property>
+		<child>
+			<object id="note" class="GtkNotebook">
+				<property name="visible">True</property>
+				<property name="width-request">600</property>
+				<property name="height-request">440</property>
+<!--first page {{{ -->				
+				<child>
+					<object id="subfix1" class="GtkFixed">
+					<property name="visible">True</property>
+<!--第一行{{{ -->					
+					<child>
+						<object id="lab1" class="GtkLabel">
+						<property name="visible">True</property>
+						<property name="label">本机IP：</property>
+						</object>
+						<packing>
+							<property name="x">5</property>
+							<property name="y">20</property>
+						</packing>
+					</child>
+					<child>
+						<object id="ed001" class="GtkEntry">
+						<property name="visible">True</property>
+						<property name="width-chars">16</property>
+						<property name="text">192.168.1.122</property>
+						</object>
+						<packing>
+							<property name="x">65</property>
+							<property name="y">10</property>
+						</packing>
+					</child>
+					<child>
+						<object id="bnt1" class="GtkButton">
+						<property name="visible">True</property>
+						<property name="label">开始监听</property>
+						</object>
+						<packing>
+							<property name="x">210</property>
+							<property name="y">10</property>
+						</packing>
+					</child>
+					<child>
+						<object id="bnt2" class="GtkButton">
+						<property name="visible">True</property>
+						<property name="label">关闭监听</property>
+						</object>
+						<packing>
+							<property name="x">320</property>
+							<property name="y">10</property>
+						</packing>
+					</child>
+					<child>
+						<object id="bnt3" class="GtkButton">
+						<property name="visible">True</property>
+						<property name="label">加载包文件</property>
+						</object>
+						<packing>
+							<property name="x">480</property>
+							<property name="y">10</property>
+						</packing>
+					</child>
+<!--}}}-->					
+<!--第二行控件{{{-->
+					<child>
+						<object id="lab11" class="GtkLabel">
+						<property name="visible">True</property>
+						<property name="label">包过滤：</property>
+						</object>
+						<packing>
+							<property name="x">5</property>
+							<property name="y">70</property>
+						</packing>
+					</child>
+					<child>
+						<object id="combox1" class="GtkComboBoxText">
+						<property name="visible">True</property>
+						<property name="active-id">box1</property>
+						<items>
+							<item translatable="yes" id="box1">捕获全部数据包</item>
+							<item translatable="yes" id="box2">捕获TCP数据包</item>
+							<item translatable="yes" id="box3">捕获UDP数据包</item>
+							<item translatable="yes" id="box4">捕获ICMP数据包</item>
+						</items>
+						</object>
+						<packing>
+							<property name="x">65</property>
+							<property name="y">60</property>
+						</packing>
+					</child>
+<!--}}}第二行控件结束-->
+					</object>
+				</child>
+				<child type="tab">
+					<object id="lab2" class="GtkLabel">
+					<property name="visible">True</property>
+					<property name="label">监听操作</property>
+					</object>
+				</child>
+<!--}}}-->
+<!--second page{{{-->
+				<child>
+					<object id="subfix2" class="GtkFixed">
+					<property name="visible">True</property>
+					<child>
+						<object id="lab21" class="GtkLabel">
+						<property name="visible">True</property>
+						<property name="label">这是第二页</property>
+						</object>
+						<packing>
+							<property name="x">20</property>
+							<property name="y">20</property>
+						</packing>
+					</child>
+					</object>
+				</child>
+				<child type="tab">
+					<object id="lab22" class="GtkLabel">
+					<property name="visible">True</property>
+					<property name="label">包分析</property>
+					</object>
+				</child>
+<!--}}}-->
+			</object>
+			<packing>
+				<property name="x">0</property>
+				<property name="y">0</property>
+			</packing>
+		</child>
+	</object></child>
+</object>
+</interface>

@@ -1,0 +1,34 @@
+<interface>
+<object id="window" class="GtkWindow">
+	<property name="visible">True</property>
+	<property name="title">demo</property>
+	<property name="default-width">640</property>
+	<property name="default-height">480</property>
+	<property name="resizable">False</property>
+	<child>
+		<object id="fixed1" class="GtkFixed">
+			<property name="visible">True</property>
+			<property name="width-request">100</property>
+			<property name="height-request">50</property>
+			<property name="border-width">20</property>
+			<child>
+				<object id="lab1" class="GtkLabel">
+					<attributes>
+						<attribute name="background" value="red" />
+					</attributes>
+					<property name="visible">True</property>
+					<property name="label">hello world,asdlfjasdfkljasdfkl;jasdfl;kjasdf;klasdf;lkjasdfasdflk;jasdfl;kjasdafaaaaaaaaaaaaaaaaaaaaasd
+					fasdfarrrrrrrr
+					tianyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+					asdflkjasdfadfsssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaasssssssssssddddddddddddddddddddddddddfffffffffffffffffasdfasdfasdfasdf
+					</property>
+				</object>
+				<packing>
+					<property name="x">50</property>
+					<property name="y">50</property>
+				</packing>
+			</child>
+		</object>
+	</child>
+</object>
+</interface>
