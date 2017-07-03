@@ -15,6 +15,13 @@ static void activate(GtkApplication *app,gpointer gp)
 	ws.window=gtk_application_window_new(ws.app);
 	gtk_window_set_title(GTK_WINDOW(ws.window),"g10 demo");
 	gtk_window_set_default_size(GTK_WINDOW(ws.window),win_w,win_h);
+	gtk_window_set_resizable(GTK_WINDOW(ws.window),FALSE);
+//	ws.pfd=pango_font_description_from_string("YaHei Consolas Hybrid");
+//	gtk_widget_modify_font(ws.window,ws.pfd);
+//	gtk_widget_override_font(ws.window,ws.pfd);
+/*这里的modify_font 和 override_font两个函数在编译时都提示不赞成使用，虽然这两个函数确实都能够起到作用。我查看网上相关的资料，也是我同样的问题，回答建议针对某个单独的控件使用gtk_entry(label)_set_attributes()
+  对于这种替代方法我没有测试，不过这种强制的字体替换做法本身就不利于移植，所以，这最多也就是种测试，是否使用还是看情况吧
+ */	
 	ws.fix1=gtk_fixed_new();
 	gtk_container_add(GTK_CONTAINER(ws.window),ws.fix1);
 	crt_notebook(gp);

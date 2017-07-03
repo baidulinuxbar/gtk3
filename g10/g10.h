@@ -12,6 +12,7 @@ struct win_st
 	GtkWidget	*lab[5];
 	GtkWidget	*note;
 	GtkWidget	*fix_note[4];
+	PangoFontDescription *pfd;
 };
 #define	win_w				800
 #define win_h				600
