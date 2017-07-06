@@ -18,8 +18,17 @@ struct win_st
 #define win_h				600
 #define note_w				780
 #define note_h				580
+#define p1_st1				"<span color=\"#0000ff\">本机IP：</span>"
+#define p1_lab1_x			5
+#define p1_lab1_y			20
+#define p1_ed1_x			p1_lab1_x+50
+#define p1_ed1_y			p1_lab2_y-10
+
+
 
 struct win_st	ws;
+char ch[1024];
+
 static void onbnt1(GtkWidget *widget,gpointer gp);
 static void onbnt2(GtkWidget *widget,gpointer gp);
 static void activate(GtkApplication *app,gpointer gp);

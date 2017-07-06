@@ -35,8 +35,13 @@ void crt_notebook(gpointer gp)
 	gtk_fixed_put(GTK_FIXED(ws.fix1),ws.note,5,5);
 	ws.lab[0]=gtk_label_new("监听界面");
 	ws.fix_note[0]=gtk_fixed_new();
+	ws.lab[4]=gtk_label_new("");
+	memset(ch,0,sizeof(ch));
+	memcpy(ch,p1_st1,strlen(p1_st1));
+	gtk_label_set_markup(GTK_LABEL(ws.lab[4]),ch);
+	gtk_fixed_put(GTK_FIXED(ws.fix_note[0]),ws.lab[4],p1_lab1_x,p1_lab1_y);
 	ws.bnt1=gtk_button_new_with_label("开始监听");
-	gtk_fixed_put(GTK_FIXED(ws.fix_note[0]),ws.bnt1,40,10);
+	gtk_fixed_put(GTK_FIXED(ws.fix_note[0]),ws.bnt1,90,10);
 	ws.lab[4]=gtk_label_new("notebook界面一");
 	gtk_fixed_put(GTK_FIXED(ws.fix_note[0]),ws.lab[4],300,300);
 	gtk_notebook_append_page(GTK_NOTEBOOK(ws.note),ws.fix_note[0],ws.lab[0]);
