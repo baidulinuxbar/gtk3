@@ -14,6 +14,8 @@ static void activate(GtkApplication *app,gpointer gp)
 	gtk_widget_set_size_request(ws.note,note_w,note_h);
 	crt_page1();
 	gtk_notebook_append_page(GTK_NOTEBOOK(ws.note),p1.fix,p1.lab[0]);
+	crt_page2();
+	gtk_notebook_append_page(GTK_NOTEBOOK(ws.note),p2.fix,p2.lab[0]);
 	gtk_fixed_put(GTK_FIXED(ws.fix),ws.note,margin_w,margin_h);
 	gtk_widget_show_all(ws.window);
 }
@@ -37,11 +39,90 @@ static void crt_page1()
 	gtk_fixed_put(GTK_FIXED(p1.fix),p1.bnt[1],p1_bnt2_x,p1_bnt2_y);
 	p1.bnt[2]=gtk_button_new_with_label(t_p1_bnt3);
 	gtk_fixed_put(GTK_FIXED(p1.fix),p1.bnt[2],p1_bnt3_x,p1_bnt3_y);
+	g_signal_connect(p1.bnt[1],"clicked",G_CALLBACK(on_p1_bnt2),NULL);
 	p1.lab[1]=gtk_label_new(t_p1_lab2);
 	gtk_fixed_put(GTK_FIXED(p1.fix),p1.lab[1],p1_lab2_x,p1_lab2_y);
-	
+	p1.combo=gtk_combo_box_text_new();
+	gtk_widget_set_size_request(p1.combo,125,20);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"0",t_p1_com1);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"1",t_p1_com2);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"2",t_p1_com3);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"3",t_p1_com4);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"4",t_p1_com5);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"5",t_p1_com6);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"6",t_p1_com7);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"7",t_p1_com8);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"8",t_p1_com9);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p1.combo),"9",t_p1_com10);
+	gtk_combo_box_set_active(GTK_COMBO_BOX(p1.combo),0);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.combo,p1_combo_x,p1_combo_y);
+	p1.lab[1]=gtk_label_new(t_p1_lab3);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.lab[1],p1_lab3_x,p1_lab3_y);
+	p1.ed[1]=gtk_entry_new();
+	gtk_entry_set_width_chars(GTK_ENTRY(p1.ed[1]),12);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.ed[1],p1_ed2_x,p1_ed2_y);
+	p1.lab[1]=gtk_label_new(t_p1_lab4);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.lab[1],p1_lab4_x,p1_lab4_y);
+	p1.ed[2]=gtk_entry_new();
+	gtk_entry_set_width_chars(GTK_ENTRY(p1.ed[2]),6);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.ed[2],p1_ed3_x,p1_ed3_y);
+	p1.lab[2]=gtk_label_new("运行状态：等待中");
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.lab[2],p1_lab5_x,p1_lab5_y);
+	p1.store=gtk_list_store_new(7,G_TYPE_INT,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,\
+			G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING);
+	p1.model=GTK_TREE_MODEL(p1.store);
+	p1.list=gtk_tree_view_new_with_model(p1.model);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list1,p1.render,"text",0,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list2,p1.render,"text",1,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list3,p1.render,"text",2,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list4,p1.render,"text",3,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list5,p1.render,"text",4,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list6,p1.render,"text",5,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	p1.render=gtk_cell_renderer_text_new();
+	p1.column=gtk_tree_view_column_new_with_attributes(t_p1_list7,p1.render,"text",6,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(p1.list),p1.column);
+	gtk_widget_set_size_request(p1.list,p1_list_w,p1_list_h);
+	p1.scroll=gtk_scrolled_window_new(NULL,NULL);
+	gtk_widget_set_size_request(p1.scroll,p1_list_w,p1_list_h);
+	gtk_widget_show(p1.scroll);
+	gtk_widget_set_vexpand(p1.scroll,TRUE);
+	gtk_widget_set_hexpand(p1.scroll,TRUE);
+	gtk_container_add(GTK_CONTAINER(p1.scroll),p1.list);
+	gtk_fixed_put(GTK_FIXED(p1.fix),p1.scroll,p1_list_x,p1_list_y);
 }
 //}}}
+//{{{static void crt_page2()
+static void crt_page2()
+{
+	p2.lab[0]=gtk_label_new(t_p2_lab1);
+	p2.fix=gtk_fixed_new();
+	p2.combo=gtk_combo_box_text_new();
+	gtk_widget_set_size_request(p2.combo,125,20);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p2.combo),"0",t_p2_com1);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p2.combo),"1",t_p2_com2);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p2.combo),"2",t_p2_com3);
+	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(p2.combo),"3",t_p2_com4);
+	gtk_combo_box_set_active(GTK_COMBO_BOX(p2.combo),0);
+	gtk_fixed_put(GTK_FIXED(p2.fix),p2.combo,p2_combo_x,p2_combo_y);
+	p2.bnt=gtk_button_new_with_label(t_p2_bnt1);
+	gtk_fixed_put(GTK_FIXED(p2.fix),p2.bnt,p2_bnt_x,p2_bnt_y);
+
+}
+//}}}
+
+
 //{{{int main(int argc,char **argv)
 int main(int argc,char **argv)
 {
@@ -70,6 +151,18 @@ static void on_p1_bnt1(GtkWidget *widget,gpointer gp)
 			ch);
 	gtk_dialog_run(GTK_DIALOG(dialog));
 	gtk_widget_destroy(dialog);
+}
+//}}}
+//{{{static void on_p1_bnt2(GtkWidget *widget,gpointer gp)
+static void on_p1_bnt2(GtkWidget *widget,gpointer gp)
+{
+	GtkTreeIter iter;
+	//gdk_threads_enter();
+	p1.store=GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(p1.list)));
+	gtk_list_store_append(p1.store,&iter);
+	memset(ch,0,sizeof(ch));
+	gtk_list_store_set(p1.store,&iter,0,0,1,"icmp",2,"25",3,"456",4,"202.102.134.68",5,"192.168.1.122",6,"60",-1);
+	//gdk_threads_leave();
 }
 //}}}
 
