@@ -33,6 +33,8 @@ struct PAGE2_CONTROL
 	GtkWidget *bnt;
 	GtkWidget *lab[2];
 	GtkWidget *ed;
+	GtkTextBuffer *buffer;
+	GtkTextIter	iter;
 	GtkWidget *scroll;
 };
 //}}}
@@ -81,9 +83,14 @@ struct PAGE2_CONTROL
 //{{{page2控件位置
 #define p2_combo_x			margin_w
 #define p2_combo_y			30
-#define p2_bnt_x			p2_combo_x+140
+#define p2_bnt_x			p2_combo_x+160
 #define p2_bnt_y			p2_combo_y
-
+#define p2_lab_x			p2_bnt_x+120
+#define p2_lab_y			p2_bnt_y+10
+#define p2_ed_x				margin_w
+#define p2_ed_y				p2_combo_y+40
+#define p2_ed_w				200
+#define p2_ed_h				100
 //}}}
 ///////////////////
 //{{{page1控件文本
@@ -122,6 +129,45 @@ struct PAGE2_CONTROL
 #define t_p2_com4			"查看数据信息"
 #define t_p2_bnt1			"查  看"
 #define t_p2_lab2			"静态"
+//定义textview字体属性
+#define tag_pal				"pal"			//pixels_above_lines
+#define tag_lmarg			"lmarg"			//left-margin
+#define tag_pbl				"pbl"			//pixels_below_lines
+#define tag_red_fg			"red_fg"		//foreground red
+#define tag_blue_fg			"blue_fg"		//foreground blue
+#define tag_yellow_fg		"yellow_fg"		//foreground_yellow
+#define tag_magenta_fg		"magenta_fg"	//foreground_magenta #FF00FF
+#define tag_green_fg		"green_fg"		//foreground_green
+#define tag_gray_fg			"gray_fg"		//foreground_gray
+#define tag_black_fg		"black_fg"		//foreground_gray
+#define tag_gray_bg			"gray_bg"		//background_gray
+#define tag_yellow_bg		"yellow_bg"		//background_yellow
+#define tag_blue_bg			"blue_bg"		//background_blue
+#define tag_green_bg		"green_bg"		//background_green
+#define tag_black_bg		"black_bg"		//background_black
+//style
+#define tag_underline		"underline"		//underline PANGO_UNDERLINE_SINGLE
+#define tag_bold			"bold"			//weight PANGO_WEIGHT_BOLD
+#define tag_italic			"italic"		//style PANGO_STYLE_ITALIC
+#define tag_strike			"strike"		//strikethrough	 TRUE
+//font size
+#define tag_quarter			"quarter sized"		//scale 0.25
+#define tag_des				"double_extra_small"	//scale PANGO_SCALE_XX_SMALL
+#define tag_es				"extra_small"	//scale PANGO_SCALE_X_SMALL
+#define tag_small			"small"			//scale PANGO_SCALE_SMALL
+#define tag_med				"medium"		//scale PANGO_SCALE_MEDIUM
+#define tag_large			"large"			//scale PANGO_SCALE_LARGE
+#define tag_elrg			"extra large"	//scale PANGO_SCALE_X_LARGE
+#define tag_delrg			"double extra large"	//scale PANGO_SCALE_XX_LARGE
+#define tag_dsz				"double size"	//scale 2.0
+//font name
+#define tag_fsong			"FangSong"		//FangSong
+#define tag_song			"SimSun"		//SimSun
+#define tag_nsong			"NSimSun"		//NSimSun
+#define tag_kai				"KaiTi"			//KaiTi
+#define tag_yahei			"YaHei Consolas Hybrid"	//YaHei Consolas Hybrid
+
+
 //}}}
 
 //}}}

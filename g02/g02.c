@@ -118,7 +118,42 @@ static void crt_page2()
 	gtk_fixed_put(GTK_FIXED(p2.fix),p2.combo,p2_combo_x,p2_combo_y);
 	p2.bnt=gtk_button_new_with_label(t_p2_bnt1);
 	gtk_fixed_put(GTK_FIXED(p2.fix),p2.bnt,p2_bnt_x,p2_bnt_y);
-
+	p2.lab[1]=gtk_label_new(t_p2_lab2);
+	gtk_fixed_put(GTK_FIXED(p2.fix),p2.lab[1],p2_lab_x,p2_lab_y);
+	p2.ed=gtk_text_view_new();
+	gtk_widget_set_size_request(p2.ed,p2_ed_w,p2_ed_h);
+	p2.buffer=gtk_text_view_get_buffer(GTK_TEXT_VIEW(p2.ed));
+	gtk_text_buffer_get_iter_at_offset(p2.buffer,&p2.iter,0);
+	gtk_text_buffer_create_tag(p2.buffer,tag_pal,"pixels_above_lines",30,NULL); //文字上方30像素的空余
+	gtk_text_buffer_create_tag(p2.buffer,tag_pbl,"pixels_below_lines",30,NULL); //文字下方30像素的空余
+	gtk_text_buffer_create_tag(p2.buffer,tag_lmarg,"left_margin",5,NULL); //文字左方5像素的空余
+	gtk_text_buffer_create_tag(p2.buffer,tag_red_fg,"foreground","red",NULL);//红色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_blue_fg,"foreground","blue",NULL);//蓝色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_yellow_fg,"foreground","yellow",NULL);//黄色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_magenta_fg,"foreground","#FF00FF",NULL);//洋红色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_green_fg,"foreground","green",NULL);	//绿色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_gray_fg,"foreground","gray",NULL);	//灰色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_black_fg,"foreground","black",NULL);	//黑色前景
+	gtk_text_buffer_create_tag(p2.buffer,tag_gray_bg,"background","gray",NULL);	//灰色背景
+	gtk_text_buffer_create_tag(p2.buffer,tag_yellow_bg,"background","yellow",NULL);	//黄色背景
+	gtk_text_buffer_create_tag(p2.buffer,tag_blue_bg,"background","blue",NULL);	//蓝色背景
+	gtk_text_buffer_create_tag(p2.buffer,tag_green_bg,"background","green",NULL);	//绿色背景
+	gtk_text_buffer_create_tag(p2.buffer,tag_black_bg,"background","black",NULL);	//黑色背景
+	gtk_text_buffer_create_tag(p2.buffer,tag_underline,"underline",PANGO_UNDERLINE_SINGLE,NULL);//下划线样式
+	gtk_text_buffer_create_tag(p2.buffer,tag_bold,"weight",PANGO_WEIGHT_BOLD,NULL); //粗体
+	gtk_text_buffer_create_tag(p2.buffer,tag_italic,"style",PANGO_STYLE_ITALIC,NULL); //斜体
+	gtk_text_buffer_create_tag(p2.buffer,tag_strike,"strikethrough",TRUE,NULL); //删除线
+	gtk_text_buffer_create_tag(p2.buffer,tag_quarter,"scale",(double)0.25,NULL); //1/4大小字体
+	gtk_text_buffer_create_tag(p2.buffer,tag_des,"scale",PANGO_SCALE_XX_SMALL,NULL);//特小小
+	gtk_text_buffer_create_tag(p2.buffer,tag_es,"scale",PANGO_SCALE_X_SMALL,NULL);//特小
+	gtk_text_buffer_create_tag(p2.buffer,tag_small,"scale",PANGO_SCALE_SMALL,NULL);	//小
+	gtk_text_buffer_create_tag(p2.buffer,tag_med,"scale",PANGO_SCAEL_MEDIUM,NULL); //普通
+	gtk_text_buffer_create_tag(p2.buffer,tag_large,"scale",PANGO_SCALE_LARGE,NULL);//大字体
+	gtk_text_buffer_create_tag(p2.buffer,tag_elrg,"scale",PANGO_SCALE_X_LARGE,NULL);//超大
+	gtk_text_buffer_create_tag(); //超大大
+	gtk_text_buffer_insert(p2.buffer,&p2.iter,"this is a test\n",strlen("this is a test\n"));
+	gtk_text_buffer_insert_with_tags_by_name(p2.buffer,&p2.iter,"this is a test 这是一个测试\n",-1,tag_pal,tag_lmarg,tag_red_fg,NULL); //上方空余30pix，左方空余5像素，红色字体
+	gtk_fixed_put(GTK_FIXED(p2.fix),p2.ed,p2_ed_x,p2_ed_y);
 }
 //}}}
 
